@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feng.mapper.BooksMapper">
+    <delete id="deleteBook">
+        delete from books where bookID = #{bookID};
+    </delete>
+    <insert id="addBook" parameterType="com.feng.pojo.Books">
+        insert into books(bookID,bookName,bookCounts,detail) values(#{bookID},#{bookName},#{bookCounts},#{detail});
+    </insert>
+    <update id="updateBook" parameterType="com.feng.pojo.Books">
+        update books set bookName=#{bookName} where bookID = #{bookID};
+    </update>
+    <select id="getBook" resultType="com.feng.pojo.Books">
+        select * from books where bookID=#{bookID};
+    </select>
+    <select id="getBooks" resultType="com.feng.pojo.Books">
+        select * from books;
+    </select>
+</mapper>
